@@ -1,4 +1,4 @@
 {
     "gitbook": "2.x.x",
-    "plugins": ["mathjax@1.0.0-alpha.2"]
+    "plugins": ["mermaid", "katex"]
 }
