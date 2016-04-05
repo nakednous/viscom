@@ -1,4 +1,3 @@
 {
-    "gitbook": "2.x.x",
-    "plugins": ["mermaid", "katex"]
+    "plugins": ["mermaid"]
 }
