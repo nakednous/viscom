@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Part I](part1/README.md)
+* [Timing](part1/README.md)
    * [Timers](part1/timer.md)
    * [Animators](part1/animator.md)
    * [Timing Tasks](part1/timing_task.md)
