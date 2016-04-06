@@ -5,7 +5,7 @@
    * [Timers](part1/timer.md)
    * [Animators](part1/animator.md)
    * [Timing Tasks](part1/timing_task.md)
-* [Part II](part2/README.md)
+* [I/O](part2/README.md)
    * [User Gestures](part2/user_gesture.md)
    * [Grabbers](part2/grabber.md)
    * [Bogus Events](part2/bogus_event.md)
