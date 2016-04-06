@@ -6,12 +6,12 @@
    * [Animators](part1/animator.md)
    * [Timing Tasks](part1/timing_task.md)
 * [I/O](part2/README.md)
+   * Challenges
    * [User Gestures](part2/user_gesture.md)
    * [Grabbers](part2/grabber.md)
    * [Bogus Events](part2/bogus_event.md)
    * [Agents](part2/agent.md)
    * [Profiles](part2/profile.md)
-   * Challenges
 * [Scene Graph](part3/README.md)
    * [Geometry](part3/geometry.md)
    * [Frames](part3/frame.md)
