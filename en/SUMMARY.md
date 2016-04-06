@@ -19,6 +19,7 @@
     * [Eye](part3/eye.md)
     * [Abstract Scene](part3/abstract_scene.md)
 * [Part IV](part4/README.md)
-    * [p5.js History](part4/p5.js_history.md)
+    * [Interactive Frames](part4/interactive_frame.md)
+    * [Scene](part4/scene.md)
 * [Part V](part5/README.md)
     * [Shaders](part5/shader.md)
