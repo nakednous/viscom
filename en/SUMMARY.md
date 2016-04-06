@@ -11,7 +11,7 @@
    * [Bogus Events](part2/bogus_event.md)
    * [Agents](part2/agent.md)
    * [Profiles](part2/profile.md)
-* [Part III](part3/README.md)
+* [Scene Graph](part3/README.md)
    * [Geometry](part3/geometry.md)
    * [Frames](part3/frame.md)
    * [Generic Frames](part3/generic_frame.md)
