@@ -19,7 +19,7 @@
    * [Key Frames](part3/key_frame.md)
    * [Eye](part3/eye.md)
    * [Abstract Scene](part3/abstract_scene.md)
-* [Part IV](part4/README.md)
+* [ProScene](part4/README.md)
    * [Interactive Frames](part4/interactive_frame.md)
    * [Scene](part4/scene.md)
 * [Part V](part5/README.md)
