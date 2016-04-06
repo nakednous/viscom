@@ -13,4 +13,4 @@ in the simplest possible way:
 * API flexibility is related to as whether or not an advanced task can be accomplished by the
 framework and if so, how.
 * Software maintenance and extensibility, such as when adding new hardware and/or application
-user-defined actions.s
+user-defined actions.
