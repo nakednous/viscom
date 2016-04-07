@@ -1,15 +1,13 @@
 # Timing Tasks
 
-In this lesson we will display serveral ellipses and implement some **FPSTiming**
-[timing tasks](http://otrolado.info/fpstimingApi/remixlab/fpstiming/TimingTask.html) to control their behavior. We will:
+In this lesson we will display serveral ellipses and implement some **FPSTiming** [timing tasks](http://otrolado.info/fpstimingApi/remixlab/fpstiming/TimingTask.html) to control their behavior. We will:
 
 1. Implement the Ellipse class.
 2. Define/instantiate some **FPSTiming** `TimingTasks` to affect the Ellipses' properties in the future.
 
 ## Implementing the Ellipse class
 
-The implementation of the Ellipse class is pretty straightforward. We implement two types of color/position and radii setter methods:
-one to randomly set the ellipse properties (parameterless versions), and the other to set them according to the parameters passed.
+The implementation of the Ellipse class is pretty straightforward. We implement two types of color/position and radii setter methods: one to randomly set the ellipse properties (parameterless versions), and the other to set them according to the parameters passed.
 
 ```java
 public class Ellipse {
@@ -129,8 +127,7 @@ void setup() {
 }
 ```
 
-Within the `PApplet.drawp()` function, we 1. Loop through the ellipses set,
-calling `Ellipse.draw()` on each ellipse; and, 2. Call the `TimingHandler.handle()` method:
+Within the `PApplet.drawp()` function, we 1. Loop through the ellipses set, calling `Ellipse.draw()` on each ellipse; and, 2. Call the `TimingHandler.handle()` method:
 
 ```java
 void draw() {
