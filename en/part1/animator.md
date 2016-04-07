@@ -30,8 +30,7 @@ class ParticleSystem extends AnimatorObject {
 }
 ```
 
-We override the `ObjectAnimator.animate()` function (the default implementation is empty) to loop through the particle set
-calling each particle's `own animate()` function:
+We override the `ObjectAnimator.animate()` function (the default implementation is empty) to loop through the particle set calling each particle's `own animate()` function:
 
 ```java
 class ParticleSystem extends AnimatorObject {
@@ -87,13 +86,11 @@ public class Particle2D {
 }
 ```
 
-It's worth noticing that each particle implements its own drawing method too. We'll using it within our `PApplet` to visualize the simulation
-(see the next section).
+It's worth noticing that each particle implements its own drawing method too. We'll using it within our `PApplet` to visualize the simulation (see the next section).
 
 ## Particle system instantiation and drawing
 
-At the `PApplet` we declare a `ParticleSystem` instance and a `TimingHandler` instance. They are properly
-instantiated at the `PApplet.setup()` function. We also start the system animation within that function:
+At the `PApplet` we declare a `ParticleSystem` instance and a `TimingHandler` instance. They are properly instantiated at the `PApplet.setup()` function. We also start the system animation within that function:
 
 
 ```java
@@ -108,8 +105,7 @@ public void setup() {
 }
 ```
 
-To visualize our simulation we override the `PApplet.draw()` function to: 1. Loop through the system's particle set,
-calling `Particle2D.draw()` on each particle; and, 2. Call the `TimingHandler.handle()` method:
+To visualize our simulation we override the `PApplet.draw()` function to: 1. Loop through the system's particle set, calling `Particle2D.draw()` on each particle; and, 2. Call the `TimingHandler.handle()` method:
 
 
 ```java
