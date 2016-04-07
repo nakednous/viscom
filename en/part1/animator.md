@@ -5,7 +5,7 @@ There are two mechanisms to implement an animation in **FPSTiming**:
 1. Implement the [Animator](http://otrolado.info/fpstimingApi/remixlab/fpstiming/Animator.html) interface, or extend from an [AnimatorObject](http://otrolado.info/fpstimingApi/remixlab/fpstiming/AnimatorObject.html) (which provides a default implementation of that interface) and implement its [animate()](http://otrolado.info/fpstimingApi/remixlab/fpstiming/AnimatorObject.html#animate()) method.
 2. Register an external animation handler method and invoke it through [reflection](http://docs.oracle.com/javase/tutorial/reflect/).
 
-Here we will implement a simple [2D particle system](http://en.wikipedia.org/wiki/Particle_system) as follows:
+Here we will implement a simple [2D particle system](http://en.wikipedia.org/wiki/Particle_system) using the first approach, as follows:
 
 1. Implement a `ParticleSystem` from extending an [AnimatorObject](http://otrolado.info/fpstimingApi/remixlab/fpstiming/AnimatorObject.html) and overriding its [animate()](http://otrolado.info/fpstimingApi/remixlab/fpstiming/AnimatorObject.html#animate()) function.
 2. Implement a `Particle2D` object representing each particle's individual behavior.
