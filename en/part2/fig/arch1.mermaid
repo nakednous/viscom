@@ -1,6 +1,7 @@
 sequenceDiagram
     User->>Agent: gesture
     Note right of User: Gesture sources: Mouse, BCI, TouchSurface, SpaceNavigator, etc.
+    Note over Agent: Grabber collection
     loop updateTrackedGrabber
         Agent->>Grabber: bogusEvent
     end
@@ -8,13 +9,11 @@ sequenceDiagram
         Grabber->>Agent: grabber
     end
     Note over Agent,Grabber: inputGrabber = trackedGrabber != null ? trackedGrabber : defaultGrabber
+    Note over InputHandler: Agent collection
     opt handle
         Agent->>InputHandler: enqueue < inputGrabber, bogusEvent >
     end
     loop dequeue
-      opt performInteraction
-          InputHandler->>Grabber: bogusEvent
-      end
+      InputHandler->>Grabber: bogusEvent
     end
-    Note over Agent: Grabber collection
-    Note over InputHandler: Agent collection
+    Note over Grabber: performInteraction(bogusEvent)
