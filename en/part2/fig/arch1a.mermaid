@@ -9,10 +9,3 @@ sequenceDiagram
         Grabber->>Agent: grabber
     end
     Note over Agent,Grabber: inputGrabber = trackedGrabber != null ? trackedGrabber : defaultGrabber
-    opt enqueue
-        Agent->>InputHandler: < inputGrabber, bogusEvent >
-    end
-    loop dequeue
-      InputHandler->>Grabber: bogusEvent
-    end
-    Note over Grabber: performInteraction(bogusEvent)
