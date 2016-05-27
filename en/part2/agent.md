@@ -7,20 +7,9 @@
 ## Bias: Agent
 #### updateTrackedGrabber(): Update the 'inputGrabber()'
 
-{% mermaid src="fig/arch1a.mermaid" %}
-{% endmermaid %}
-
-{% mermaid src="fig/arch2a.mermaid" %}
-{% endmermaid %}
 
 ## Bias: Agent
 #### handle(): perform an interaction on the 'inputGrabber()'
-
-{% mermaid src="fig/arch1b.mermaid" %}
-{% endmermaid %}
-
-{% mermaid src="fig/arch2b.mermaid" %}
-{% endmermaid %}
 
 ## Full Feature Example
 (TODO: really need to decide where all the examples should go)
