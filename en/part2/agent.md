@@ -11,7 +11,6 @@
 ## Bias: Agent
 #### handle(): perform an interaction on the 'inputGrabber()'
 
-
 ## Full Feature Example
 (TODO: really need to decide where all the examples should go)
 
