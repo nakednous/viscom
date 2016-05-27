@@ -1,7 +1,5 @@
 # Summary
 
-* Chapter 1
-   * Introduction
 * [Introduction](README.md)
 * [Timing](part1/README.md)
    * [Timers](part1/timer.md)
