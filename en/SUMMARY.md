@@ -1,6 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
+   * [Visual Computing in Processing](part0/processing.md)
+   * [Rendering and Interaction](part0/rendering.md)
 * [Timing](part1/README.md)
    * [Timers](part1/timer.md)
    * [Animators](part1/animator.md)
