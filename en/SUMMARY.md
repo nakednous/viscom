@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* Fundamentals
 * [Timing](part1/README.md)
    * [Timers](part1/timer.md)
    * [Animators](part1/animator.md)
@@ -25,5 +26,4 @@
    * [Scene](part4/scene.md)
 * [Shaders](part5/README.md)
    * [Shaders](part5/shader.md)
-* Fundamentals
 
