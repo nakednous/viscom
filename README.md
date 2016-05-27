@@ -1,4 +1,4 @@
-# Computer Graphics for Artists & Designers
+# Visual Computing for Artists & Designers
 
 Book under construction...
 
