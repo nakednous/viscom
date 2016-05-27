@@ -1,6 +1,6 @@
 # Summary
 
-* [Fundamentals](part0/fundamentals.md)
+* [Fundamentals](part0/README.md)
 * [Introduction](README.md)
 * [Timing](part1/README.md)
    * [Timers](part1/timer.md)
