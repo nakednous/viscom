@@ -1,9 +1,5 @@
 # Frames
 
-
-{% mermaid src="fig/frame_hierarchy.mermaid" %}
-{% endmermaid %}
-
 ```java
   frame.setReferenceFrame(parent);
 ```
