@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* Fundamentals
+* [Fundamentals](part0/fundamentals.md)
 * [Timing](part1/README.md)
    * [Timers](part1/timer.md)
    * [Animators](part1/animator.md)
