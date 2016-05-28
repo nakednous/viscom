@@ -28,6 +28,6 @@
    * [Texturing](part3/texturing.md)
    * [Lighting](part3/lighting.md)
    * [Image filters](part3/image_processing.md)
-   * Vertex mapping
+   * [Vertex mapping](part3/vertex_mapping.md)
 * [Advanced topics](part4/README.md)
 
