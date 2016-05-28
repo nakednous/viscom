@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Introduction](part1/README.md)
    * [Visual Computing in Processing](part1/processing.md)
    * [Rendering and Interaction](part1/rendering.md)
@@ -22,7 +23,7 @@
    * [Abstract Scene](part2/abstract_scene.md)
    * [Interactive Frames](part2/interactive_frame.md)
    * [Scene](part2/scene.md)
-* [Shaders](part3/README.md)
+* [Rendering](part3/README.md)
    * [Shaders](part3/shader.md)
 * [Advanced topics](part4/README.md)
 
