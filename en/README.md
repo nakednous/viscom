@@ -1,14 +1,11 @@
 # Visual Computing for Artists & Designers (and everyone else)
 
 Visual Computing is the field that contains topics such as: 
-* Computer graphics, 
-* Image processing, 
-* Visualization, 
-* Computer vision, 
-* Virtual and augmented reality, 
-* Video processing, 
-* Pattern recognition, 
+* Computer graphics and computer animation 
+* Image analysis and computer vision
+* Visualization and visual analytics 
+* Geometric modeling and 3D-printing
+* Image processing and image editing 
+* Virtual and augmented reality
 * Human computer interaction
-* Machine learning 
-* Digital libraries
 
