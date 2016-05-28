@@ -9,3 +9,5 @@ Visual Computing is the field that contains topics such as:
  * Virtual and augmented reality
  * Human computer interaction
 
+Creative coders make use of techniques from these fields, through the use of programmings like Processing, OpenFrameworks, etc.
+
