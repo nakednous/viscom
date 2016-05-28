@@ -4,3 +4,4 @@ Processing is a programming environment and language created at the MIT Media La
 
 Processing provides functions to render 2D & 3D scenes.
 
+Processin can be extended with libraries
