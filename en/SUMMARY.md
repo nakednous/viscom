@@ -34,4 +34,5 @@
 * [Advanced topics](part4/README.md)
    * [Adaptive Level of Detail](part4/adaptive_level_of_detail.md)
    * [Geometry Oclussion](part4/geometry_oclussion.md)
+   * Visualizing complex 3D scenes
 
