@@ -30,5 +30,6 @@
    * [Image filters](part3/image_processing.md)
    * [Vertex mapping](part3/vertex_mapping.md)
    * [Stroke rendering](part3/stroke_rendering.md)
+   * Custom vertex attributes
 * [Advanced topics](part4/README.md)
 
