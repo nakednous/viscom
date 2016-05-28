@@ -1,2 +1,2 @@
-# Timers
+# Rendering and Interaction
 
