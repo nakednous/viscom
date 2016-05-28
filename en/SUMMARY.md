@@ -24,6 +24,6 @@
    * [Interactive Frames](part2/interactive_frame.md)
    * [Scene](part2/scene.md)
 * [Rendering](part3/README.md)
-   * [Shaders](part3/shader.md)
+   * [Shaders in Processing](part3/shader.md)
 * [Advanced topics](part4/README.md)
 
