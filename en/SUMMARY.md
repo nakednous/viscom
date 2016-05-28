@@ -33,5 +33,5 @@
    * [Custom vertex attributes](part3/custom_vertex_attributes.md)
 * [Advanced topics](part4/README.md)
    * [Adaptive Level of Detail](part4/adaptive_level_of_detail.md)
-   * Geometry Oclussion
+   * [Geometry Oclussion](part4/geometry_oclussion.md)
 
