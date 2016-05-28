@@ -26,6 +26,6 @@
 * [Rendering](part3/README.md)
    * [Shaders in Processing](part3/shader.md)
    * [Texturing](part3/texturing.md)
-   * Lighting
+   * [Lighting](part3/lighting.md)
 * [Advanced topics](part4/README.md)
 
