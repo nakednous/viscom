@@ -1,6 +1,7 @@
 # Visual Computing for Artists & Designers (and everyone else)
 
 Visual Computing is the field that contains disciplines such as: 
+
  * Computer graphics and computer animation 
  * Image analysis and computer vision
  * Visualization and visual analytics 
