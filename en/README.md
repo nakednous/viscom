@@ -9,5 +9,5 @@ Visual Computing is the field that contains disciplines such as:
  * Virtual and augmented reality
  * Human computer interaction
 
-Creative coders (artists, designers, and everyone else) make use of techniques from these disciplines, through the use of programmings like Processing, OpenFrameworks, etc. In this book, we will focus on computer graphics and animation, human computer interaction in Processing by means of shaders and the ProScene library.
+Creative coders (artists, designers, and everyone else) make use of techniques from these disciplines, through programming frameworks like Processing, OpenFrameworks, etc. In this book, we will focus on computer graphics and animation, human computer interaction in Processing by means of shaders and the ProScene library.
 
