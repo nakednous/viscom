@@ -32,5 +32,5 @@
    * [Stroke rendering](part3/stroke_rendering.md)
    * [Custom vertex attributes](part3/custom_vertex_attributes.md)
 * [Advanced topics](part4/README.md)
-   * Adaptive Level of Detail
+   * [Adaptive Level of Detail](part4/adaptive_level_of_detail.md)
 
