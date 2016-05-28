@@ -1,5 +1,2 @@
-# Dandelion
+# Part III: Rendering
 
-## Goal
-
-> Provide interactivity to *frames* (coordinate systems)
