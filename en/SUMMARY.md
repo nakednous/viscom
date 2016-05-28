@@ -25,5 +25,6 @@
    * [Scene](part2/scene.md)
 * [Rendering](part3/README.md)
    * [Shaders in Processing](part3/shader.md)
+   * Texturing
 * [Advanced topics](part4/README.md)
 
