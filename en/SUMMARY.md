@@ -27,6 +27,6 @@
    * [Shaders in Processing](part3/shader.md)
    * [Texturing](part3/texturing.md)
    * [Lighting](part3/lighting.md)
-   * Image processing
+   * [Image processing](part3/image_processing.md)
 * [Advanced topics](part4/README.md)
 
