@@ -21,6 +21,8 @@ PShader sh;
 
 ## Uniforms & attributes
 
+Applying geometric transformations to vertex position: modelview matrix, etc.
+
 ## Basic shaders
 
 "Color" shaders
