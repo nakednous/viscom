@@ -1,1 +1,2 @@
-# Part II: Interaction
+# Part III: Rendering
+
