@@ -19,7 +19,10 @@ PShader sh;
 }
 ```
 
-Uniforms & attributes
-Basic shaders
+## Uniforms & attributes
+
+## Basic shaders
+
+"Color" shaders
 
 
