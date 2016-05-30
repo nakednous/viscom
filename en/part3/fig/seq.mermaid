@@ -1,0 +1,33 @@
+sequenceDiagram
+    Note right of User: Mouse, BCI, TouchSurface, SpaceNavigator, etc.
+    alt polling
+        User->>InputHandler: gesture
+        Note over InputHandler: Agent collection
+        %alt updateTrackedGrabberFeed
+            InputHandler->>Agent: gesture
+        %else handleFeed
+            %InputHandler-->>Agent: gesture
+        %end
+    else application's own listening mechanism
+        User->>Agent: gesture
+    end
+
+    alt updateTrackedGrabber
+        Note over Agent: Grabber collection
+        Agent->>Grabber: bogusEvent
+        %opt checkIfGrabsInput
+            Note over Grabber: checkIfGrabsInput(bogusEvent)
+            Grabber-->>Agent: grabber
+        %end
+        Note over Agent,Grabber: inputGrabber = trackedGrabber != null ? trackedGrabber : defaultGrabber
+    else handle
+        opt enqueue
+           Agent-->>InputHandler: < bogusEvent, inputGrabber >
+        end
+        loop dequeue
+          InputHandler->>Grabber: bogusEvent
+        end
+        Note over Grabber: performInteraction(bogusEvent)
+    end
+
+    %%Note over InputHandler: Agent collection
