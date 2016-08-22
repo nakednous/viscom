@@ -12,6 +12,6 @@ public class UserObject {
 }
 ```
 
-## InteractiveFrames PShapes
+## InteractiveFramesPShapes
 
-## InteractiveFrames graphics procedures
+## InteractiveFrame graphics procedures
