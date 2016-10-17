@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Geometry transformations allow to control de view-point and interact with the objects within a virtual environment. A given geometry transformation of a point defined within a coordinate system can be understood in two different but equivalent ways: either the physical position of the point is transformed while the coordinate system remains fixed, or the coordinate system changes (also referred to as _change of basis_[^1]) while the point remains fixed. The former interpretation sometimes is referred to as _active_ or _alibi_ transformation while the second is referred to as _passive_ or _alias_ transformation[^2].
+Geometry transformations allow to control de view-point and interact with the objects within a virtual environment. A given geometry transformation of a point defined within a coordinate system can be understood in two different, but equivalent ways: either the physical position of the point is transformed while the coordinate system remains fixed, or the coordinate system changes (also referred to as _change of basis_[^1]) while the point remains fixed. The former interpretation sometimes is referred to as _active_ or _alibi_ transformation while the second is referred to as _passive_ or _alias_ transformation[^2].
 
-Active transformations are more suitable to handle rigid body transformations (i.e., a body where the distances between every pair of points remains always the same). Passive transformations allow to represent the relative motion of an articulated rigid body set where each element lies in its own _local_ coordinate system. In the latter case, the coordinate systems form a rooted tree-hierarchy that can easily be traversed by means of a matrix stack of transformations[^3]:
+Active transformations are more suitable to handle rigid body transformations (i.e., a body where the distances between every pair of points remains always the same). Passive transformations allow to represent the relative motion of an articulated body where each of its elements lies in its own _local_ coordinate system. In the latter case, the coordinate systems may form a rooted tree-hierarchy that can easily be traversed by means of a matrix stack of transformations[^3]:
 
 ```java
 void traverse(CoordinateSystem sys) {
@@ -21,13 +21,16 @@ and then just calling ```traverse(root)``` on the root coordinate system. Note i
 
 ## Interactive Frames
 
-In Proscene an _InteractiveFrame_ (or simply a _frame_) is a 2D or 3D coordinate system encapsulating an _alias_ _angle preserving_ transformation ($$M(frame)$$) sequence of a ```translation``` ($$T(\delta x,\delta y)$$), a ```rotation``` ($$R(\beta)$$) and a uniform, non-negative ```scaling``` ($$S(\lambda)$$). These individual transformations are defined respect to a _reference frame_ which is just another frame instance that may be ```null```, when it stands for the world coordinate system.
+In Proscene an _InteractiveFrame_ (or simply a _frame_) is a 2D or 3D coordinate system encapsulating a _passive_ _angle preserving_ transformation ($$M$$) compose of a ```translation``` ($$T$$), a ```rotation``` ($$R$$) and a uniform, positive ```scaling``` ($$S$$). These individual transformations are defined respect to a _reference frame_ which is just another frame instance that may be ```null```, when it stands for the world coordinate system.
 
-Since geoemtry transformations don't commute generally the order of these transformations is important: the frame is first translated, then rotated around the new translated origin and then scaled, i.e., $$M(frame)=T(\delta x,\delta y)R(\beta)S(\lambda)$$. Mnemonically, this transformation sequence may be read it from right-to-left too as: the interactive-frame is first scaled, then rotated around the reference frame origin and then translated respect to the reference frame origin.
+Since geoemtry transformations don't generally commute, the order of these transformations is important: the frame is first translated, then rotated around the new translated origin and then scaled, i.e., $$M=TRS$$. Mnemonically, this transformation composition may be read from right-to-left too as: the interactive-frame is first scaled, then rotated around the reference frame origin and then translated respect to the reference frame origin.
 
 To define a frame simply pass the ```scene``` object to its constructor:
 
 ```java
+import remixlab.proscene.*;
+import remixlab.dandelion.geom.*;
+
 Scene scene;
 InteractiveFrame frame;
 void setup() {
@@ -40,30 +43,38 @@ void setup() {
 }
 ```
 
-The frame ```matrix``` method will then be useful to render an object onto the screen, as follows:
+To set the frame transformation matrix above the following methods were used:
+
+1. ```setTranslation(Vec)``` which expects a ```remixlab.dandelion.geom.Vec``` instance representing a 2D or 3D vector;
+2. ```setRotation(Rotation)``` expecting a ```remixlab.dandelion.geom.Rotation``` instance which in 2D is a ```Rot``` and in 3D is a ```Quat``` (as in the above example); and,
+3. ```setScaling(float)``` which simply expects a positive ```float``` value.
+
+Since the composition sequence is fixed within the frame, the order in which these methods are called doesn't count. The frame constructor ```new InteractiveFrame(scene)``` sets the frame matrix transformation to its default identity value, i.e., no translation, no rotation and unit scaling, when they aren't present.
+
+The frame ```matrix()``` method will then be useful to render an object onto the screen, as follows:
 
 ```java
 void draw() {
   pushMatrix();
-  scene.applyModelView(body.matrix());
-  // Draw your object here, in the local frame coordinate system.
+  scene.applyModelView(frame.matrix());
+  drawObject();
   popMatrix();
 }
 ```
 
 ## Hierarchy of Frames
 
-Frames can hence easily be organized in a rooted tree hierarchy, which root is the world coordinate system, just by calling ```setReferenceFrame(Frame)```. This method prevents the creation of loops in the hierarchy and gracefully inform about if it's going to happen.
+By simply calling ```setReferenceFrame(Frame)```, frames can easily be organized in a rooted tree hierarchy which root is the world coordinate system. This method prevents the creation of loops in the hierarchy and print a warning about it whenever it's going to happen. Frames can be re-rooted at any time by calling this method on different frame instances which may even be null (see next paragraph).
 
-The default ```referenceFrame()``` is the world coordinate system (represented by a ```null``` ```referenceFrame()```). If you ```setReferenceFrame(Frame)``` to a different frame, you must then discern:
+The default ```referenceFrame()``` is the world coordinate system (represented by a ```null``` ```referenceFrame()```). If ```setReferenceFrame(Frame)``` is called on a different frame, then the following must be discern:
 
-1. The *local* ```translation()```, ```rotation()``` and ```scaling()``` , defined with respect to the ```referenceFrame()```.
-2. The *global* ```position()```, ```orientation()``` and ```magnitude()```, always defined with respect to the world coordinate system.
+1. The *local* ```translation()```, ```rotation()``` and ```scaling()``` , defined with respect to the ```referenceFrame()```; and,
+2. The *global* ```position()```, ```orientation()``` and ```magnitude()```, always defined with respect to the world coordinate system. The ```setPosition(Vec)```, ```setOrientation(Rotation)``` and ```setMagnitude(float)``` methods sets the global paramenters.
 
 This terminology for *local* (```translation()```, ```rotation()``` and ```scaling()```) and *global* ( ```position()```, ```orientation()``` and
-```magnitude()```) definitions is used in all the frame method prototypes and should be sufficient to prevent ambiguities. These notions are obviously identical when the ```referenceFrame()``` is ```null```, i.e., when the frame is defined in the world coordinate system.
+```magnitude()```) definitions is used among all the frame class API and should be sufficient to prevent ambiguities. These notions are obviously identical when the ```referenceFrame()``` is ```null```, i.e., when the frame is defined in the world coordinate system.
 
-As an illustration...
+As an illustration, take the following code:
 
 ```java
 Scene scene;
@@ -79,10 +90,11 @@ void setup() {
 }
 ```
 
-frame_hierarchy.mermaid (only by means of keeping a reference to ```referenceFrame()```)
-![Frame hierarchy](fig/frame_hierarchy.mermaid.png)
+which defines this tree hierarchy:
 
-Render the tree hierarchy onto the screen, as follows:
+![Frame hierarchy](fig/robot.png)
+
+The ```eyeFrame``` is used set up a viewpoint to render the scene from and will be discussed separately in the [Eye](eye.md) chapter. Now the tree hierarchy may be rendered onto the screen, as follows:
 
 ```java
 void draw() {
@@ -103,15 +115,34 @@ void draw() {
 
 While a ```pushMatrix``` followed by one of the (equivalent) apply transformation methods (```Scene.applyModelView(Mat)```, ```Scene.applyTransformation(InteractiveFrame)``` or simply ```InteractiveFrame.applyTransformation()```) calls mean _entering_ into the frame coordinate system, a ```popMatrix``` means _leaving_ it and returning to its reference frame.
 
+## Transformations among frames
+
+There are several situations where it's useful to transform a given point or vector among frame instances. Consider, for example, the case where an object defined in its own local frame, such as a car, should be translated respect to another frame such as such the world coordinate system. The [Frame API](http://remixlab.github.io/proscene-javadocs) provides several methods to transform its ```rotation```, such as [rotate(Rotation)](http://remixlab.github.io/proscene-javadocs/remixlab/dandelion/geom/Frame.html#rotate-remixlab.dandelion.geom.Rotation-). Since the Rotation parameter in that method should be given in the frame coordinate system, the desired effect can be achived with a two-step process:
+
+1. Transform the parameter into the frame coordinate system where the method expect it; and,
+2. Call the method performing the transformation on the transformed parameter.
+
+From Frame transformations
+
+| From    | world                    | referenceFrame                | otherFrame                          |
+|---------|--------------------------|-------------------------------|-------------------------------------|
+|  Points | ```coordinatesOf(Vec)``` | ```localCoordinatesOf(Vec)``` | ```coordinatesOfFrom(Vec, Frame)``` |
+| Vectors | ```transformOf(Vec)```   | ```localTransformOf(Vec)```   | ```transformOfFrom(Vec, Frame)```   |
+
+To Frame transformations
+
+| To      | world                           | referenceFrame                       | otherFrame                        |
+|---------|---------------------------------|--------------------------------------|-----------------------------------|
+|  Points | ```inverseCoordinatesOf(Vec)``` | ```localInverseCoordinatesOf(Vec)``` | ```coordinatesOfIn(Vec, Frame)``` |
+| Vectors | ```inverseTransformOf(Vec)```   | ```localInverseTransformOf(Vec)```   | ```transformOfIn(Vec, Frame)```   |
+
 ## Point transformations
 
-Many functions are provided to transform a point from one coordinate system (Frame) to an other: see ```coordinatesOf(Vec)```, ```inverseCoordinatesOf(Vec)```, ```coordinatesOfIn(Vec, Frame)```, ```coordinatesOfFrom(Vec, Frame)```...
+Many functions are provided to transform a point from one frame to an other: see ```coordinatesOf(Vec)```, ```inverseCoordinatesOf(Vec)```, ```coordinatesOfIn(Vec, Frame)```, ```coordinatesOfFrom(Vec, Frame)```...
  
 ## Vector transformations
 
 You may also want to transform a vector (such as a normal), which corresponds to applying only the rotational part of the frame transformation: see ```transformOf(Vec)``` and ```inverseTransformOf(Vec)```.
-
-The ```translation()```, ```rotation()``` and uniform positive ```scaling()``` that are encapsulated in a Frame can also be used to represent an angle preserving transformation of space. Such a transformation can also be interpreted as a change of coordinate system, and the coordinate system conversion functions actually allow you to use a Frame as an angle preserving transformation. Use ```inverseCoordinatesOf(Vec)``` (resp. ```coordinatesOf(Vec)```) to apply the transformation (resp. its inverse). Note the inversion.
 
 ## Constraints
 
